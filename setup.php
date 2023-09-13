@@ -27,9 +27,9 @@
  * ---------------------------------------------------------------------
  **/
 
- define('EXAMPLEPLUGIN_VERSION', '1.0');
- define('EXAMPLEPLUGIN_AUTHOR', 'AntoineLemarchand');
- define('EXAMPLEPLUGIN_HOMEPAGE', 'https://github.com/AntoineLemarchand/examplePlugin');
+ define('examplePlugin_VERSION', '1.0');
+ define('examplePlugin_AUTHOR', 'AntoineLemarchand');
+ define('examplePlugin_HOMEPAGE', 'https://github.com/AntoineLemarchand/examplePlugin');
 
 
 /**
@@ -37,13 +37,13 @@
  *
  * @return void
  */
-function plugin_version_exampleplugin(): array {
+function plugin_version_examplePlugin(): array {
     return array(
-        'name'           => "exampleplugin",
-        'version'        => EXAMPLEPLUGIN_VERSION,
-        'author'         => EXAMPLEPLUGIN_AUTHOR,
+        'name'           => "Example Plugin",
+        'version'        => examplePlugin_VERSION,
+        'author'         => examplePlugin_AUTHOR,
         'license'        => 'GPLv3+',
-        'homepage'       => EXAMPLEPLUGIN_HOMEPAGE,
+        'homepage'       => examplePlugin_HOMEPAGE,
         'requirements'   => [
             'glpi'   => [
                'min' => '9.5'
@@ -60,7 +60,7 @@ function plugin_version_exampleplugin(): array {
  *
  * @return boolean
  */
-function plugin_exampleplugin_check_prerequisites(): bool {
+function plugin_examplePlugin_check_prerequisites(): bool {
     return true;
 }
 
@@ -69,7 +69,7 @@ function plugin_exampleplugin_check_prerequisites(): bool {
  *
  * @return boolean
  */
-function plugin_exampleplugin_check_config(): bool {
+function plugin_examplePlugin_check_config(): bool {
     return true;
 }
 
@@ -78,5 +78,8 @@ function plugin_exampleplugin_check_config(): bool {
  * 
  * @global array $PLUGIN_HOOKS
  */
-function plugin_init_exampleplugin(): void {
+function plugin_init_examplePlugin(): void {
+  global $PLUGIN_HOOKS;
+
+  $PLUGIN_HOOKS['csrf_compliant']['examplePlugin'] = true; // needed
 }

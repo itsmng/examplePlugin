@@ -28,7 +28,7 @@
  * ---------------------------------------------------------------------
  **/
  
-function plugin_dbpopulator_install(): bool {
+function plugin_examplePlugin_install(): bool {
   return true;
 }
 
@@ -37,6 +37,6 @@ function plugin_dbpopulator_install(): bool {
  *
  * @return boolean
  */
-function plugin_dbpopulator_uninstall(): bool {
+function plugin_examplePlugin_uninstall(): bool {
   return true;
 }

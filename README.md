@@ -2,6 +2,7 @@
 
 ITSM-NG est doté d'un puissant moteur de plugin qui permet de modifier la majorité des pages du logiciel et d'en créer.
 Les méthodes de création d'un plugin sont assez libre mais nécessite de suivre quelques standards.
+(Cette page est liée a un [repo github](https://github.com/AntoineLemarchand/examplePlugin) contenant un exemple minimal)
 
 ## L'arborescence
 L'arborescence des plugin ITSM-NG se présente de la sorte:
@@ -15,9 +16,9 @@ MyPlugin/
 ```
 
 ### Les dossiers
-* __front/__ contient les fichiers contenant les pages et formulaires du plugin.
-* __inc/__ contient les fichier contenant les classes et la logique du plugin.
-* __locales/__ contient les fichier de traduction (*.po, *.mo).
+* [front/]() contient les fichiers contenant les pages et formulaires du plugin.
+* [inc/]() contient les fichier contenant les classes et la logique du plugin.
+* [locales/]() contient les fichier de traduction (*.po, *.mo).
 * Vous avez la liberté d'ajouter d'autres dossiers en veillant a garder l'arborescence compréhensible.
 
 ### Les fichiers
