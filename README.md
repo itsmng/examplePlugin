@@ -11,7 +11,7 @@ MyPlugin/
 ┣ inc/
 ┣ locales/ # pour 
 ┣ */
-┣ setup.php # Il contien la 
+┗ setup.php # Il contien la 
 ```
 
 ### Les dossiers
@@ -24,15 +24,18 @@ MyPlugin/
 
 #### setup.php
 setup.php défini la fiche d'identité et les vérifications d'installation du plugin.
-il doit au moins contenir 5 fonctions ({MONPLUGIN} étant le nom de votre plugin):
+il doit au moins contenir ces cinq fonctions ({MONPLUGIN} étant le nom de votre plugin):
 
-* `plugin_version_{MONPLUGIN}(): array`: La fiche d'identité du plugin
-* `plugin_init_{MONPLUGIN}(): void`: pour initialiser les hooks du plugin
-* `plugin_{MONPLUGIN}_check_prerequisites(): bool`: Vérification des dépendances nécessaire au plugin AVANT l'installation
-* `plugin_{MONPLUGIN}_check_config($verbose = false): bool`: Vérification de la configuration nécessaire au plugin AVANT l'installation
+* `plugin_version_{MONPLUGIN}(): array`: La fiche d'identité du plugin.
+* `plugin_init_{MONPLUGIN}(): void`: pour initialiser les hooks du plugin.
+* `plugin_{MONPLUGIN}_check_prerequisites(): bool`: Vérification des dépendances nécessaire au plugin AVANT l'installation.
+* `plugin_{MONPLUGIN}_check_config($verbose = false): bool`: Vérification de la configuration nécessaire au plugin AVANT l'installation.
 
 Il est aussi encouragé de charger la version du plugin dans une constance `{MONPLUGIN_VERSION}`
 
 #### hook.php
 hook.php contient la définition des hooks du plugin.
+il doit au moins contenir ces deux fonctions ({MONPLUGIN} étant le nom de votre plugin):
 
+* `plugin_{MONPLUGIN}_install(): bool`: créer les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
+* `plugin_{MONPLUGIN}_uninstall(): bool`: supprime les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
