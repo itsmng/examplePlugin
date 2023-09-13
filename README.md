@@ -5,14 +5,15 @@ Les méthodes de création d'un plugin sont assez libre mais nécessite de suivr
 (Cette page est liée a un [repo github](https://github.com/AntoineLemarchand/examplePlugin) contenant un exemple minimal)
 
 ## L'arborescence
-L'arborescence des plugin ITSM-NG se présente de la sorte:
+L'arborescence des plugins ITSM-NG se présente de la sorte:
 ```
 MyPlugin/
 ┣ front/
 ┣ inc/
-┣ locales/ # pour 
+┣ locales/
 ┣ */
-┗ setup.php # Il contien la 
+┣ hook.php
+┗ setup.php
 ```
 
 ### Les dossiers
@@ -38,5 +39,5 @@ Il est aussi encouragé de charger la version du plugin dans une constance [`{MO
 hook.php contient la définition des hooks du plugin.
 il doit au moins contenir ces deux fonctions ({MONPLUGIN} étant le nom de votre plugin):
 
-* `plugin_{MONPLUGIN}_install(): bool`: créer les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
-* `plugin_{MONPLUGIN}_uninstall(): bool`: supprime les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
+* [`plugin_{MONPLUGIN}_install(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L31): créer les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
+* [`plugin_{MONPLUGIN}_uninstall(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L40): supprime les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
