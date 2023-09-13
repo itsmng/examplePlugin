@@ -27,10 +27,10 @@ MyPlugin/
 setup.php défini la fiche d'identité et les vérifications d'installation du plugin.
 il doit au moins contenir ces cinq fonctions ({MONPLUGIN} étant le nom de votre plugin):
 
-* [plugin_version_{MONPLUGIN}(): array](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L40): La fiche d'identité du plugin.
-* [plugin_init_{MONPLUGIN}(): void](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L81): pour initialiser les hooks du plugin.
-* [plugin_{MONPLUGIN}_check_prerequisites(): bool](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L63): Vérification des dépendances nécessaire au plugin AVANT l'installation.
-* [plugin_{MONPLUGIN}_check_config($verbose = false): bool](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L72): Vérification de la configuration nécessaire au plugin AVANT l'installation.
+* [`plugin_version_{MONPLUGIN}(): array`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L40): La fiche d'identité du plugin.
+* [`plugin_init_{MONPLUGIN}(): void`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L81): pour initialiser les hooks du plugin.
+* [`plugin_{MONPLUGIN}_check_prerequisites(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L63): Vérification des dépendances nécessaire au plugin AVANT l'installation.
+* [`plugin_{MONPLUGIN}_check_config($verbose = false): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L72): Vérification de la configuration nécessaire au plugin AVANT l'installation.
 
 Il est aussi encouragé de charger la version du plugin dans une constance [`{MONPLUGIN_VERSION}`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L30)
 
