@@ -18,7 +18,7 @@ MyPlugin/
 ### Les dossiers
 * [front/](https://github.com/AntoineLemarchand/examplePlugin/tree/main/front) contient les fichiers contenant les pages et formulaires du plugin.
 * [inc/](https://github.com/AntoineLemarchand/examplePlugin/tree/main/inc) contient les fichier contenant les classes et la logique du plugin.
-* [locales/]() contient les fichier de traduction (*.po, *.mo).
+* [locales/](https://github.com/AntoineLemarchand/examplePlugin/tree/main/locales) contient les fichier de traduction (*.po, *.mo).
 * Vous avez la liberté d'ajouter d'autres dossiers en veillant a garder l'arborescence compréhensible.
 
 ### Les fichiers
@@ -27,12 +27,12 @@ MyPlugin/
 setup.php défini la fiche d'identité et les vérifications d'installation du plugin.
 il doit au moins contenir ces cinq fonctions ({MONPLUGIN} étant le nom de votre plugin):
 
-* `plugin_version_{MONPLUGIN}(): array`: La fiche d'identité du plugin.
-* `plugin_init_{MONPLUGIN}(): void`: pour initialiser les hooks du plugin.
-* `plugin_{MONPLUGIN}_check_prerequisites(): bool`: Vérification des dépendances nécessaire au plugin AVANT l'installation.
-* `plugin_{MONPLUGIN}_check_config($verbose = false): bool`: Vérification de la configuration nécessaire au plugin AVANT l'installation.
+* [`plugin_version_{MONPLUGIN}(): array`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L40): La fiche d'identité du plugin.
+* [`plugin_init_{MONPLUGIN}(): void`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L81): pour initialiser les hooks du plugin.
+* [`plugin_{MONPLUGIN}_check_prerequisites(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L63): Vérification des dépendances nécessaire au plugin AVANT l'installation.
+* [`plugin_{MONPLUGIN}_check_config($verbose = false): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L72): Vérification de la configuration nécessaire au plugin AVANT l'installation.
 
-Il est aussi encouragé de charger la version du plugin dans une constance `{MONPLUGIN_VERSION}`
+Il est aussi encouragé de charger la version du plugin dans une constance [`{MONPLUGIN_VERSION}`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L30)
 
 #### hook.php
 hook.php contient la définition des hooks du plugin.
