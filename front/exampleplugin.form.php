@@ -34,7 +34,7 @@ Html::header(__("Example Plugin", "exampleplugin"), $_SERVER['PHP_SELF'], 'admin
 
 $plugin = new Plugin();
 if ($plugin->isActivated("exampleplugin")) {
-    Session::checkRight("config", READ);
+    Session::checkRight("plugin_exampleplugin_exampleplugin", READ);
 } else {
     Html::displayRightError();
 }
@@ -51,9 +51,11 @@ if (isset($_POST['add'])) {
 <div class="center">
   <h1>Welcome to my cool plugin ! it was interacted with <?php echo $count ?> time<?php echo 1 > 1 ? 's' : '' ?> !</h1>
     <form method="post" action="exampleplugin.form.php">
+      <?php if (Session::haveRight("plugin_exampleplugin_exampleplugin", UPDATE)) { ?>
     <button name="addOne" type="submit">Interact !</button>
     <input type="hidden" name="add" value="1"></input>
-    <input type="hidden" name="_glpi_csrf_token" value="<?php Session::getNewCSRFToken() ?>"></input>
+    <?php } ?>
+      <input type="hidden" name="_glpi_csrf_token" value="<?php Session::getNewCSRFToken() ?>"></input>
 <?php Html::closeForm() ?>
 </div>
 <?php Html::footer() ?>

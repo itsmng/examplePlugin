@@ -50,7 +50,7 @@ function plugin_version_examplePlugin(): array {
             'php'    => [
                 'min' => '8.0'
             ]
-         ]
+        ]
     );
 }
 
@@ -84,11 +84,12 @@ function plugin_exampleplugin_check_config(): bool {
 function plugin_init_exampleplugin(): void {
   global $PLUGIN_HOOKS;
   // register classes
-  Plugin::registerClass('PluginExamplepluginProfile', ['addtabon' => array('Profile')]);
+  Plugin::registerClass('PluginExamplepluginProfile', ['addtabon' => ['Profile']]);
   
   // insert hooks
   $PLUGIN_HOOKS['csrf_compliant']['exampleplugin'] = true; // needed
-  if (Session::haveRight("profile", UPDATE)) {
+  $PLUGIN_HOOKS['change_profile']['exampleplugin'] = ['PluginExamplePluginProfile','initProfile'];
+  if (Session::haveRight("plugin_exampleplugin_exampleplugin", READ)) {
     $PLUGIN_HOOKS['menu_toadd']['exampleplugin'] = ['tools' => array(PluginExamplepluginConfig::class)];
   }
 }
