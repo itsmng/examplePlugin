@@ -58,7 +58,7 @@ if (isset($_POST['add'])) {
     <form method="post" action="exampleplugin.form.php">
       <?php if (Session::haveRight("plugin_exampleplugin_exampleplugin", UPDATE)) { ?>
     <button name="addOne" type="submit">
-      <?php __("Interact !" , "exampleplugin") ?>
+      <?php echo __("Interact" , "exampleplugin") ?>
     </button>
     <input type="hidden" name="add" value="1"></input>
     <?php } ?>

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-14 16:17+0200\n"
-"PO-Revision-Date: 2023-09-14 16:18+0200\n"
+"POT-Creation-Date: 2023-09-14 16:36+0200\n"
+"PO-Revision-Date: 2023-09-14 16:36+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,8 +16,8 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: front/exampleplugin.form.php:33 inc/profile.class.php:114
-#: inc/profile.class.php:153 setup.php:41
+#: front/exampleplugin.form.php:33 inc/config.class.php:44
+#: inc/profile.class.php:114 inc/profile.class.php:153 setup.php:41
 msgid "Example Plugin"
 msgstr "Plugin d'exemple"
 
@@ -38,12 +38,8 @@ msgid " time"
 msgstr " fois"
 
 #: front/exampleplugin.form.php:61
-msgid "Interact !"
-msgstr "Intéragissez !"
-
-#: inc/config.class.php:44
-msgid "My Example Plugin"
-msgstr "Mon plugin d'exemple"
+msgid "Interact"
+msgstr "Intéragir"
 
 #: inc/profile.class.php:155
 msgid "Allow Reading"
@@ -56,3 +52,6 @@ msgstr "Autoriser l'édition"
 #: inc/profile.class.php:185
 msgid "General"
 msgstr "Général"
+
+#~ msgid "My Example Plugin"
+#~ msgstr "Mon plugin d'exemple"
