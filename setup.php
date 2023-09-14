@@ -84,8 +84,11 @@ function plugin_exampleplugin_check_config(): bool {
 function plugin_init_exampleplugin(): void {
   global $PLUGIN_HOOKS;
   // register classes
+  Plugin::registerClass('PluginExamplepluginProfile', ['addtabon' => array('Profile')]);
   
   // insert hooks
   $PLUGIN_HOOKS['csrf_compliant']['exampleplugin'] = true; // needed
-  $PLUGIN_HOOKS['menu_toadd']['exampleplugin'] = ['tools' => array(PluginExamplepluginConfig::class)];
+  if (Session::haveRight("profile", UPDATE)) {
+    $PLUGIN_HOOKS['menu_toadd']['exampleplugin'] = ['tools' => array(PluginExamplepluginConfig::class)];
+  }
 }

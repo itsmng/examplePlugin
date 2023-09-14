@@ -41,6 +41,12 @@ il doit au moins contenir ces deux fonctions ({MONPLUGIN} étant le nom de votre
 * [`plugin_{MONPLUGIN}_install(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L31): créer les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
 * [`plugin_{MONPLUGIN}_uninstall(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L40): supprime les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
 
+## Convention de nommage
+Le système de plugin est sensible au nommage des fichier et des classes, ainsi, un fichier qui s'appelle `{NOMDUFICHIER}.php` ou `{NOMDUFICHIER}.*.php` doit contenir une classe qui se nomme `Plugin{NOMDUPLUGIN}{NOMDUFICHIER}`
+Sinon, elle ne sera pas detectée par le logiciel.
+
+Les tables créées par le plugin doivent toutes avoir un nom commencant par `glpi_plugin_{NOMDUPLUGIN}_`
+
 ## Configuration
 
 Pour customiser le fil d'ariane et les boutons du header de chaque pages,
@@ -51,3 +57,8 @@ Ce fichier contient en particulier la fonction `getMenuContent` qui retourne un 
 * le titre de la page
 * la page a rediriger
 * l'icone a afficher dans le champ ou dans le fil d'ariane
+
+## Gestion des droits
+Pour gérer les droits d'un plugin, celui-ci doit créer une table de profile nommée `glpi_plugin_{NOMDUPLUGIN}_profiles` dans le fichier `hook.php`.
+Le plugin doit aussi contenir un fichier `/inc/profile.class.php` qui contient la logique d'attribution des droits, le code dans le repo d'exemple donne
+les droit de modifications a celui qui installe le plugin, qu'il peut alors gérer dans la partie `administration>profiles>management`

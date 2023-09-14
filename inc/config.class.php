@@ -53,7 +53,7 @@ class PluginExamplepluginConfig extends CommonDBTM
   {
     $menu = [
       'title' => self::getMenuName(),
-      'page' => Plugin::getPhpDir('examplePlugin', false) . '/front/examplePlugin.form.php',
+      'page' => Plugin::getPhpDir('exampleplugin', false) . '/front/exampleplugin.form.php',
       'icon' => 'fab fa-php'
     ];
 

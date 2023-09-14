@@ -27,10 +27,41 @@
  * along with ITSM-NG. If not, see <http://www.gnu.org/licenses/>.
  * ---------------------------------------------------------------------
  **/
- 
-function plugin_examplePlugin_install(): bool {
+
+function plugin_exampleplugin_install(): bool {
+  global $DB;
+  // profile table
+  if (!$DB->tableExists("glpi_plugin_exampleplugin_profiles")) {
+    $query = "CREATE TABLE `glpi_plugin_exampleplugin_profiles` (
+    `id` int(11) NOT NULL default '0' COMMENT 'RELATION to glpi_profiles (id)',
+    `right` char(1) collate utf8_unicode_ci default NULL,
+    PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+
+    $DB->queryOrDie($query, $DB->error());
+
+    include_once(GLPI_ROOT . "/plugins/exampleplugin/inc/profile.class.php");
+    PluginExamplepluginProfile::createAdminAccess($_SESSION['glpiactiveprofile']['id']);
+
+    foreach (PluginExamplepluginProfile::getRightsGeneral() as $right) {
+      PluginExamplepluginProfile::addDefaultProfileInfos($_SESSION['glpiactiveprofile']['id'], [$right['field'] => $right['default']]);
+    }
+  }
+
+  // counter table
+  if (!$DB->tableExists("glpi_plugin_exampleplugin_counter")) {
+    $createquery = "CREATE TABLE `glpi_plugin_exampleplugin_counter` (
+    `count` int(11) NOT NULL default '0'
+    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+    $insertquery = "INSERT INTO glpi_plugin_exampleplugin_counter (count) VALUES (0)";
+
+    $DB->queryOrDie($createquery, $DB->error());
+    $DB->queryOrDie($insertquery, $DB->error());
+  }
+
   return true;
 }
+
 
 /**
  * Uninstall plugin
@@ -38,5 +69,25 @@ function plugin_examplePlugin_install(): bool {
  * @return boolean
  */
 function plugin_examplePlugin_uninstall(): bool {
+  global $DB;
+
+  if ($DB->tableExists('glpi_plugin_exampleplugin_counter')) {
+    $DB->queryOrDie("DROP TABLE `glpi_plugin_exampleplugin_counter`", $DB->error());
+  }
+
+  if ($DB->tableExists('glpi_plugin_exampleplugin_profiles')) {
+    $DB->queryOrDie("DROP TABLE `glpi_plugin_exampleplugin_profiles`", $DB->error());
+  }
+
+  // Clear profiles
+  foreach (PluginExamplepluginProfile::getRightsGeneral() as $right) {
+    $query = "DELETE FROM `glpi_profilerights` WHERE `name` = '" . $right['field'] . "'";
+    $DB->query($query);
+
+    if (isset($_SESSION['glpiactiveprofile'][$right['field']])) {
+      unset($_SESSION['glpiactiveprofile'][$right['field']]);
+    }
+  }
+
   return true;
 }

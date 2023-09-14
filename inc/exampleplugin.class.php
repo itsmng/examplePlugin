@@ -28,18 +28,35 @@
  * ---------------------------------------------------------------------
  */
 
-include_once('../../../inc/includes.php');
+class PluginExamplepluginExampleplugin extends CommonDBTM
+{
+  /**
+  * Get the interaction count
+  *
+  * @global $DB
+  * 
+  * @return int
+  */
+  static function getCount() {
+    global $DB;
 
-Html::header(__("Example Plugin", "exampleplugin"), $_SERVER['PHP_SELF'], 'admin', PluginExamplepluginConfig::class);
-?>
-<div class="center">
-  <h1>Welcome to my cool plugin ! it was interacted with <? echo 1 ?> time<? echo 1 > 1 ? 's' : '' ?> !</h1>
-    <form>
-    <label for="addOne">Add </label>
-    <button name="addOne" type="submit">+1</button>
-    <input type="hidden" name="add" value="1"></input>
-    <input type="hidden" name="_glpi_csrf_token" value="<?php Session::getNewCSRFToken() ?>"></input>
-  </form>
-</div>
+    $query = "SELECT * FROM `glpi_plugin_exampleplugin_counter`";
+    $result = $DB->query($query);
+    return $result->fetch_assoc()['count'];
+  }
 
-<?php Html::footer() ?>
+  /**
+  * Add to the counter
+  *
+  * @global $DB
+  *
+  * @param int amount
+  * @return void
+  */
+  static function setCounter(int $amount) {
+    global $DB;
+
+    $query = "UPDATE glpi_plugin_exampleplugin_counter SET count = ".$amount;
+    $DB->query($query);
+  }
+}
