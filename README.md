@@ -17,9 +17,9 @@ MyPlugin/
 ```
 
 ### Les dossiers
-* [front/](https://github.com/AntoineLemarchand/examplePlugin/tree/main/front) contient les fichiers contenant les pages et formulaires du plugin.
-* [inc/](https://github.com/AntoineLemarchand/examplePlugin/tree/main/inc) contient les fichier contenant les classes et la logique du plugin.
-* [locales/](https://github.com/AntoineLemarchand/examplePlugin/tree/main/locales) contient les fichier de traduction (*.po, *.mo).
+* [front/](/front) contient les fichiers contenant les pages et formulaires du plugin.
+* [inc/](/inc) contient les fichier contenant les classes et la logique du plugin.
+* [locales/](/locales) contient les fichier de traduction (*.po, *.mo).
 * Vous avez la liberté d'ajouter d'autres dossiers en veillant a garder l'arborescence compréhensible.
 
 ### Les fichiers
