@@ -41,7 +41,7 @@ class PluginExamplepluginConfig extends CommonDBTM
   */
   static function getTypeName($nb = 0)
   {
-    return __("My Example Plugin", 'exampleplugin');
+    return __("Example Plugin", 'exampleplugin');
   }
 
   /**

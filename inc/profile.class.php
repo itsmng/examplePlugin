@@ -111,7 +111,7 @@ class PluginExamplepluginProfile extends CommonDBTM {
 	 */
 	function getTabNameForItem(CommonGLPI $item, $withtemplate=0) {
 		if (Session::haveRight("profile", UPDATE) && $item->getType() == 'Profile') {
-			return __('Translation editor', 'exampleplugin');
+			return __('Example Plugin', 'exampleplugin');
 		}
 
 		return '';
@@ -150,7 +150,7 @@ class PluginExamplepluginProfile extends CommonDBTM {
 		$rights = [
 			[
 				'itemtype'  => 'PluginExamplepluginProfile',
-				'label'     => __('Translation editor', 'exampleplugin'),
+				'label'     => __('Example Plugin', 'exampleplugin'),
 				'field'     => 'plugin_exampleplugin_exampleplugin',
 				'rights'    =>  [READ => __('Allow Reading', 'exampleplugin'), UPDATE => __('Allow editing', 'exampleplugin')],
 				'default'   => 23

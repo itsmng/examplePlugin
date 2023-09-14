@@ -1,58 +1,58 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-14 16:17+0200\n"
-"PO-Revision-Date: 2023-09-14 16:18+0200\n"
+"POT-Creation-Date: 2023-09-14 16:09+0200\n"
+"PO-Revision-Date: 2022-04-19 20:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: fr\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: front/exampleplugin.form.php:33 inc/profile.class.php:114
-#: inc/profile.class.php:153 setup.php:41
+#: front/exampleplugin.form.php:33 setup.php:41
 msgid "Example Plugin"
-msgstr "Plugin d'exemple"
+msgstr ""
 
 #: front/exampleplugin.form.php:46
 msgid "You just interacted with my cool plugin !"
-msgstr "Vous venez d'intéragir avec mon super plugin !"
+msgstr ""
 
 #: front/exampleplugin.form.php:54
-msgid "Welcome to my cool plugin ! It was interacted with "
-msgstr "Bienvenue dans mon super plugin ! Il à été interagi avec "
+msgid "Welcome to my cool plugin ! it was interacted with "
+msgstr ""
 
 #: front/exampleplugin.form.php:55
-msgid " times"
-msgstr " fois"
+msgid "times"
+msgstr ""
 
 #: front/exampleplugin.form.php:55
-msgid " time"
-msgstr " fois"
-
-#: front/exampleplugin.form.php:61
-msgid "Interact !"
-msgstr "Intéragissez !"
+msgid "time"
+msgstr ""
 
 #: inc/config.class.php:44
 msgid "My Example Plugin"
-msgstr "Mon plugin d'exemple"
+msgstr ""
+
+#: inc/profile.class.php:114 inc/profile.class.php:153
+msgid "Translation editor"
+msgstr ""
 
 #: inc/profile.class.php:155
 msgid "Allow Reading"
-msgstr "Autoriser la lecture"
+msgstr ""
 
 #: inc/profile.class.php:155
 msgid "Allow editing"
-msgstr "Autoriser l'édition"
+msgstr ""
 
 #: inc/profile.class.php:185
 msgid "General"
-msgstr "Général"
+msgstr ""

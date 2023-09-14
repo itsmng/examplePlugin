@@ -77,11 +77,16 @@ function plugin_examplePlugin_uninstall(): bool
 {
   global $DB;
 
-  $tablename = 'glpi_plugin_exampleplugin_profiles';
+  $tablenames = [
+    'glpi_plugin_exampleplugin_profiles',
+    'glpi_plugin_exampleplugin_counter'
+  ];
 
-  if ($DB->tableExists($tablename)) $DB->queryOrDie("DROP TABLE `$tablename`", $DB->error());
+  foreach ($tablenames as $tablename) {
+    if ($DB->tableExists($tablename)) $DB->queryOrDie("DROP TABLE `$tablename`", $DB->error());
+  }
 
-  foreach (PluginExamplePluginProfile::getRightsGeneral() as $right) {
+  foreach (PluginExamplepluginProfile::getRightsGeneral() as $right) {
     $query = "DELETE FROM `glpi_profilerights` WHERE `name` = '" . $right['field'] . "'";
     $DB->query($query);
 
