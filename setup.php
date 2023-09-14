@@ -27,10 +27,9 @@
  * ---------------------------------------------------------------------
  **/
 
- define('examplePlugin_VERSION', '1.0');
- define('examplePlugin_AUTHOR', 'AntoineLemarchand');
- define('examplePlugin_HOMEPAGE', 'https://github.com/AntoineLemarchand/examplePlugin');
-
+ define('EXAMPLEPLUGIN_VERSION', '1.0');
+ define('EXAMPLEPLUGIN_AUTHOR', 'AntoineLemarchand');
+ define('EXAMPLEPLUGIN_HOMEPAGE', 'https://github.com/AntoineLemarchand/examplePlugin');
 
 /**
  * Define Name,Version,Author... of the plugin
@@ -39,11 +38,11 @@
  */
 function plugin_version_examplePlugin(): array {
     return array(
-        'name'           => "Example Plugin",
-        'version'        => examplePlugin_VERSION,
-        'author'         => examplePlugin_AUTHOR,
+        'name'           => __('Example Plugin', 'exampleplugin'),
+        'version'        => EXAMPLEPLUGIN_VERSION,
+        'author'         => EXAMPLEPLUGIN_AUTHOR,
         'license'        => 'GPLv3+',
-        'homepage'       => examplePlugin_HOMEPAGE,
+        'homepage'       => EXAMPLEPLUGIN_HOMEPAGE,
         'requirements'   => [
             'glpi'   => [
                'min' => '9.5'
@@ -60,7 +59,11 @@ function plugin_version_examplePlugin(): array {
  *
  * @return boolean
  */
-function plugin_examplePlugin_check_prerequisites(): bool {
+function plugin_exampleplugin_check_prerequisites(): bool {
+      if (version_compare(ITSM_VERSION, '1.0', 'lt')) {
+        echo "This plugin requires ITSM >= 1.0";
+        return false;
+    }
     return true;
 }
 
@@ -69,7 +72,7 @@ function plugin_examplePlugin_check_prerequisites(): bool {
  *
  * @return boolean
  */
-function plugin_examplePlugin_check_config(): bool {
+function plugin_exampleplugin_check_config(): bool {
     return true;
 }
 
@@ -78,8 +81,11 @@ function plugin_examplePlugin_check_config(): bool {
  * 
  * @global array $PLUGIN_HOOKS
  */
-function plugin_init_examplePlugin(): void {
+function plugin_init_exampleplugin(): void {
   global $PLUGIN_HOOKS;
-
-  $PLUGIN_HOOKS['csrf_compliant']['examplePlugin'] = true; // needed
+  // register classes
+  
+  // insert hooks
+  $PLUGIN_HOOKS['csrf_compliant']['exampleplugin'] = true; // needed
+  $PLUGIN_HOOKS['menu_toadd']['exampleplugin'] = ['tools' => array(PluginExamplepluginConfig::class)];
 }

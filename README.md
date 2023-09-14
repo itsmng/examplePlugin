@@ -32,12 +32,22 @@ il doit au moins contenir ces cinq fonctions ({MONPLUGIN} étant le nom de votre
 * [`plugin_init_{MONPLUGIN}(): void`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L81): pour initialiser les hooks du plugin.
 * [`plugin_{MONPLUGIN}_check_prerequisites(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L63): Vérification des dépendances nécessaire au plugin AVANT l'installation.
 * [`plugin_{MONPLUGIN}_check_config($verbose = false): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L72): Vérification de la configuration nécessaire au plugin AVANT l'installation.
-
 Il est aussi encouragé de charger la version du plugin dans une constance [`{MONPLUGIN_VERSION}`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L30)
 
 #### hook.php
 hook.php contient la définition des hooks du plugin.
 il doit au moins contenir ces deux fonctions ({MONPLUGIN} étant le nom de votre plugin):
 
-* [`plugin_{MONPLUGIN}_install(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L31): créer les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
-* [`plugin_{MONPLUGIN}_uninstall(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L40): supprime les bases de données du plugin et éffectue les étapes nécessaire a son l'installation.
+* [`plugin_{MONPLUGIN}_install(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L31): créer les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
+* [`plugin_{MONPLUGIN}_uninstall(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L40): supprime les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
+
+## Configuration
+
+Pour customiser le fil d'ariane et les boutons du header de chaque pages,
+il est possible d'ajouter dans leur header un fichier de configuration ([`/inc/config.class.php`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/inc/config.class.php))
+Celui-ci peut aussi encapsuler le fichier front lors de l'ajout d'un champ dans la barre de navigation par exemple ([comme ici](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L90))
+
+Ce fichier contient en particulier la fonction `getMenuContent` qui retourne un objet contenant:
+* le titre de la page
+* la page a rediriger
+* l'icone a afficher dans le champ ou dans le fil d'ariane
