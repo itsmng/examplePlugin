@@ -38,8 +38,8 @@ Il est aussi encouragé de charger la version du plugin dans une constance [`{MO
 hook.php contient la définition des hooks du plugin.
 il doit au moins contenir ces deux fonctions ({MONPLUGIN} étant le nom de votre plugin):
 
-* [`plugin_{MONPLUGIN}_install(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L31): créer les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
-* [`plugin_{MONPLUGIN}_uninstall(): bool`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/hook.php#L40): supprime les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
+* [`plugin_{MONPLUGIN}_install(): bool`](/hook.php#L31): créer les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
+* [`plugin_{MONPLUGIN}_uninstall(): bool`](/hook.php#L76): supprime les bases de données du plugin et effectue les étapes nécessaire a son l'installation.
 
 ## Convention de nommage
 Le système de plugin est sensible au nommage des fichier et des classes, ainsi, un fichier qui s'appelle `{NOMDUFICHIER}.php` ou `{NOMDUFICHIER}.*.php` doit contenir une classe qui se nomme `Plugin{NOMDUPLUGIN}{NOMDUFICHIER}`
@@ -50,8 +50,8 @@ Les tables créées par le plugin doivent toutes avoir un nom commencant par `gl
 ## Configuration
 
 Pour customiser le fil d'ariane et les boutons du header de chaque pages,
-il est possible d'ajouter dans leur header un fichier de configuration ([`/inc/config.class.php`](https://github.com/AntoineLemarchand/examplePlugin/blob/main/inc/config.class.php))
-Celui-ci peut aussi encapsuler le fichier front lors de l'ajout d'un champ dans la barre de navigation par exemple ([comme ici](https://github.com/AntoineLemarchand/examplePlugin/blob/main/setup.php#L90))
+il est possible d'ajouter dans leur header un fichier de configuration ([`/inc/config.class.php`](/inc/config.class.php))
+Celui-ci peut aussi encapsuler le fichier front lors de l'ajout d'un champ dans la barre de navigation par exemple ([comme ici](/setup.php#L93))
 
 Ce fichier contient en particulier la fonction `getMenuContent` qui retourne un objet contenant:
 * le titre de la page
@@ -59,6 +59,13 @@ Ce fichier contient en particulier la fonction `getMenuContent` qui retourne un 
 * l'icone a afficher dans le champ ou dans le fil d'ariane
 
 ## Gestion des droits
-Pour gérer les droits d'un plugin, celui-ci doit créer une table de profile nommée `glpi_plugin_{NOMDUPLUGIN}_profiles` dans le fichier `hook.php`.
-Le plugin doit aussi contenir un fichier `/inc/profile.class.php` qui contient la logique d'attribution des droits, le code dans le repo d'exemple donne
-les droit de modifications a celui qui installe le plugin, qu'il peut alors gérer dans la partie `administration>profiles>management`
+Pour gérer les droits d'un plugin, celui-ci doit (créer une table de profile nommée `glpi_plugin_{NOMDUPLUGIN}_profiles` dans le fichier `hook.php`)[/hook.php#L38].
+Le plugin doit aussi contenir un fichier (`/inc/profile.class.php`)[/inc/profile.class.php] qui contient la logique d'attribution des droits, le code dans le repo d'exemple donne
+les droit de modifications a celui qui installe le plugin, qu'il peut alors gérer dans la partie `administration>profiles>{NOMDUPLUGIN}` grâce aux fonctions: 
+* (`function getTabNameForItem(CommonGLPI $item, $withtemplate=0)`)[/inc/profile.class.php#L112]
+* (`static function displayTabContentForItem(CommonGLPI $item, $tabnum=1, $withtemplate=0)`)[/inc/profile.class.php#L128]
+* (`function showForm($profiles_id = 0, $openform = true, $closeform = true)`)[/inc/profile.class.php#L171]
+
+## Traduction
+Les fichiers de traductions sont dans des fichiers `.mo` `.po` et `.pot`
+Cette partie peut être (automatisé avec Poedit)[https://www.pontikis.net/blog/php-javascript-internationalization-gettext-poedit] 
